@@ -12,10 +12,23 @@
 #error "You are not using a 32-bit i686 compiler. Please use i686-elf-gcc."
 #endif
 
+#include "terminal.h"
+#include "lib/string.h"
+
+
 void core_main()
 {
-	/* put an A in the top-left corner to show we've booted */
-	*((uint8_t*)0xb8000) = 'A'; 
+	char* message1 = "Project";
+	char* message2 = "\xb3 \xb3";
+	term_init();
+	term_setcolor(COLOR_LIGHT_GREY);
+	term_setcur(term_getwidth() / 2 - strlen(message1) / 2, term_getheight() / 2 - 2);
+	term_write(message1);
+	term_setcolor(COLOR_BLUE);
+	term_setcur(term_getwidth() / 2 - strlen(message2) / 2, term_getheight() / 2);
+	term_write(message2);
+	term_setcur(term_getwidth() / 2 - strlen(message2) / 2, term_getheight() / 2 + 1);
+	term_write(message2);
 	return;
 }
 
