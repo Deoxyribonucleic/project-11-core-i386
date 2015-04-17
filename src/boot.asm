@@ -12,11 +12,13 @@
 .long FLAGS
 .long CHECKSUM
 
-# Set up small temporary stack
+
+# Set up stack
 .section .bootstrap_stack, "aw", @nobits
 stack_bottom:
-.skip 16384
+.skip 16384 # 16 KB
 stack_top:
+
 
 # Time to start the kernel!
 .section .text
@@ -24,7 +26,16 @@ stack_top:
 .type _start, @function
 _start:
 	# Use our temporary stack
-	movl $stack_top, %esp
+	# movl $stack_top, %esp
+	
+	# Try using arbitrary stack at 0x07ffffff.
+	# This is (obviously) not optimal, but as the noob I am
+	# I don't completely understand the memory stuff yet.
+	# For now I'm just going to assume that the machine
+	# has at least 128 MB of memory, putting the heap at
+	# 64MB (growing upwards) and the stack at 128MB (downwards).
+	# This area of memory should at least be free, provided it exists.
+	movl $0x07ffffff, %esp
 	
 	# Let's go!
 	call core_main
