@@ -8,7 +8,7 @@
 #endif
 
 /* same, but make sure we're building for 32 bit for i386 */
-#if defined(__linux__)
+#if defined(__i386__)
 #error "You are not using a 32-bit x86 compiler. Please use i686-elf-gcc."
 #endif
 
