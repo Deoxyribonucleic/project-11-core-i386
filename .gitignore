@@ -3,4 +3,5 @@
 *.o
 *.bin
 build/
+.sconsign.dblite
 
