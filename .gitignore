@@ -2,5 +2,5 @@
 *.swo
 *.o
 *.bin
-build7
+build/
 
