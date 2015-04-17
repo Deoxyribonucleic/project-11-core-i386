@@ -7,9 +7,9 @@
 #error "You are not using a cross-compiler. Please use i686-elf-gcc."
 #endif
 
-/* same, but make sure we're building for 32 bit for i686 */
+/* same, but make sure we're building for 32 bit for i386 */
 #if defined(__linux__)
-#error "You are not using a 32-bit i686 compiler. Please use i686-elf-gcc."
+#error "You are not using a 32-bit x86 compiler. Please use i686-elf-gcc."
 #endif
 
 #include "terminal.h"

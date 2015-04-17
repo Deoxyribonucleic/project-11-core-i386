@@ -1,4 +1,4 @@
-# i686 Runtime Core for Project 11
+# i386 Runtime Core for Project 11
 
 ...
 
