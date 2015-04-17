@@ -14,7 +14,7 @@
 
 #include "terminal.h"
 #include "memory.h"
-#include "lib/string.h"
+#include <string.h>
 
 
 void core_main()

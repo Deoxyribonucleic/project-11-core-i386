@@ -1,7 +1,5 @@
 #include "string.h"
 
-#include "../terminal.h"
-
 
 size_t strlen(const char* str)
 {

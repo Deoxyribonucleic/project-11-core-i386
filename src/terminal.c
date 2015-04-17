@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "lib/string.h"
+#include <string.h>
 
 #define VGA_WIDTH 80
 #define VGA_HEIGHT 25

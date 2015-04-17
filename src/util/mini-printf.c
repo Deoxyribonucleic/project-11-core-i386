@@ -41,9 +41,9 @@
  *                                         *
  *                                          */
 
-#include "../lib/string.h"
 #include "../terminal.h"
 #include <stdarg.h>
+#include <string.h>
 #include "mini-printf.h"
 
 	static unsigned int
