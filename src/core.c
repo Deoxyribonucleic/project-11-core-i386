@@ -15,6 +15,7 @@
 #include "terminal.h"
 #include "memory.h"
 #include <string.h>
+#include <stdio.h>
 
 
 void core_main()
@@ -39,10 +40,12 @@ void core_main()
 	void* block2 = mem_alloc(0x10000);
 	mem_free(block1);
 	void* block3 = mem_alloc(0x10000);
+	block3 = mem_realloc(block3, 0x5000);
+	block3 = mem_realloc(block3, 0x15000);
 	void* block4 = mem_alloc(0x10000);
 	mem_free(block2);
 	mem_free(block4);
-
+	
 	return;
 }
 

@@ -14,6 +14,7 @@ memory.c
 terminal.c
 util/mini-printf.c
 lib/string.c
+lib/libc.c
 boot.asm
 """)
 
@@ -32,7 +33,7 @@ lua/ldump.c
 lua/lfunc.c
 lua/lgc.c
 lua/linit.c
-lua/liolib.c
+#lua/liolib.c
 lua/llex.c
 lua/lmathlib.c
 lua/lmem.c
@@ -47,13 +48,13 @@ lua/lstrlib.c
 lua/ltable.c
 lua/ltablib.c
 lua/ltm.c
-lua/lua.c
+#lua/lua.c
 lua/luac.c
 lua/lundump.c
 lua/lvm.c
 lua/lzio.c
 """)
 
-object = env.Object(source = [source, lua_source])
+object = env.Object(source = [source]) #, lua_source])
 core = env.Program(target = 'p11-core', LINKFLAGS = '-T linker.ld -nostdlib -ffreestanding -O2 -Wall -Wextra', source = object)
 

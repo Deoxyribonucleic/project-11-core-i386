@@ -35,7 +35,7 @@ _start:
 	# has at least 128 MB of memory, putting the heap at
 	# 64MB (growing upwards) and the stack at 128MB (downwards).
 	# This area of memory should at least be free, provided it exists.
-	movl $0x07ffffff, %esp
+	movl $0x07000000, %esp
 	
 	# Let's go!
 	call core_main
