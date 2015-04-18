@@ -70,6 +70,8 @@ void try_insert_block(struct mem_block* block, size_t size)
 void* mem_alloc(size_t size)
 {
 	printf("[mem] allocating %x bytes\n", size);
+	if(size == 0)
+		return NULL;
 	struct mem_block* block = first_block;
 
 	// walk through the linked list until we find
@@ -138,6 +140,15 @@ struct mem_block* try_merge(struct mem_block* block)
 
 void* mem_realloc(void* addr, size_t size)
 {
+	if(addr == NULL)
+		return mem_alloc(size);
+
+	if(size == 0)
+	{
+		mem_free(addr);
+		return NULL;
+	}
+
 	/* We completely trust the caller about this one, but oh well... */
 
 	// the address the allocator retuns lies immediately after the control
