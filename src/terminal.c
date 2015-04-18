@@ -19,7 +19,7 @@ void term_init()
 	vga_start = VGA_START;
 
 	size_t offset;
-	for(offset = 0; offset < VGA_WIDTH * VGA_HEIGHT; ++offset)
+	for(offset = 0; offset < VGA_WIDTH * VGA_HEIGHT + VGA_WIDTH; ++offset)
 	{
 		vga_start[offset] = 0x0700;
 	}
@@ -32,7 +32,17 @@ void term_putch(char c)
 {
 	if (c == '\n')
 	{
-		term_setcur(0, term_getcury() + 1);
+		// if we're on last row, scroll text
+		// and only reset X
+		if(term_getcury() == VGA_HEIGHT - 1)
+		{
+			term_setcur(0, term_getcury());
+			memmove(vga_start, (void*)vga_start + VGA_WIDTH * 2, VGA_HEIGHT * VGA_WIDTH * 2);
+		}
+		else
+		{
+			term_setcur(0, term_getcury() + 1);
+		}
 	}
 	else
 	{
