@@ -55,6 +55,6 @@ lua/lvm.c
 lua/lzio.c
 """)
 
-object = env.Object(source = [source]) #, lua_source])
+object = env.Object(source = [source, lua_source])
 core = env.Program(target = 'p11-core', LINKFLAGS = '-T linker.ld -nostdlib -ffreestanding -O2 -Wall -Wextra', source = object)
 

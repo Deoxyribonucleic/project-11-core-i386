@@ -188,6 +188,9 @@ void *memmove( void *destination, const void *source, size_t num)
 	return destination;
 }
 
+
+#include <stdlib.h>
+
 void* malloc(size_t size)
 {
 	return mem_alloc(size);
@@ -201,5 +204,12 @@ void* realloc(void* ptr, size_t size)
 void free(void* ptr)
 {
 	mem_free(ptr);
+}
+
+
+#include <stdio.h>
+
+void fflush(FILE* file)
+{
 }
 

@@ -212,8 +212,10 @@ printf(char *fmt, ...)
 	va_end(va);
 }
 
+#include <stdio.h>
+
 	void
-fprintf(int fd, char *fmt, ...)
+fprintf(FILE* fd, char *fmt, ...)
 {
 	char buffer[512];
 	va_list va;
