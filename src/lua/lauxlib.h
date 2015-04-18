@@ -62,7 +62,7 @@ LUALIB_API int (luaL_error) (lua_State *L, const char *fmt, ...);
 LUALIB_API int (luaL_checkoption) (lua_State *L, int narg, const char *def,
                                    const char *const lst[]);
 
-LUALIB_API int (luaL_fileresult) (lua_State *L, int stat, const char *fname);
+//LUALIB_API int (luaL_fileresult) (lua_State *L, int stat, const char *fname);
 LUALIB_API int (luaL_execresult) (lua_State *L, int stat);
 
 /* pre-defined references */
@@ -72,10 +72,10 @@ LUALIB_API int (luaL_execresult) (lua_State *L, int stat);
 LUALIB_API int (luaL_ref) (lua_State *L, int t);
 LUALIB_API void (luaL_unref) (lua_State *L, int t, int ref);
 
-LUALIB_API int (luaL_loadfilex) (lua_State *L, const char *filename,
-                                               const char *mode);
+/*LUALIB_API int (luaL_loadfilex) (lua_State *L, const char *filename,
+                                               const char *mode);*/
 
-#define luaL_loadfile(L,f)	luaL_loadfilex(L,f,NULL)
+// #define luaL_loadfile(L,f)	luaL_loadfilex(L,f,NULL)
 
 LUALIB_API int (luaL_loadbufferx) (lua_State *L, const char *buff, size_t sz,
                                    const char *name, const char *mode);
@@ -121,8 +121,8 @@ LUALIB_API void (luaL_requiref) (lua_State *L, const char *modname,
 
 #define luaL_typename(L,i)	lua_typename(L, lua_type(L,(i)))
 
-#define luaL_dofile(L, fn) \
-	(luaL_loadfile(L, fn) || lua_pcall(L, 0, LUA_MULTRET, 0))
+/*#define luaL_dofile(L, fn) \
+	(luaL_loadfile(L, fn) || lua_pcall(L, 0, LUA_MULTRET, 0))*/
 
 #define luaL_dostring(L, s) \
 	(luaL_loadstring(L, s) || lua_pcall(L, 0, LUA_MULTRET, 0))
@@ -185,10 +185,10 @@ LUALIB_API char *(luaL_buffinitsize) (lua_State *L, luaL_Buffer *B, size_t sz);
 #define LUA_FILEHANDLE          "FILE*"
 
 
-typedef struct luaL_Stream {
-  FILE *f;  /* stream (NULL for incompletely created streams) */
-  lua_CFunction closef;  /* to close stream (NULL for closed streams) */
-} luaL_Stream;
+// typedef struct luaL_Stream {
+//   FILE *f;  /* stream (NULL for incompletely created streams) */
+//   lua_CFunction closef;  /* to close stream (NULL for closed streams) */
+// } luaL_Stream;
 
 /* }====================================================== */
 

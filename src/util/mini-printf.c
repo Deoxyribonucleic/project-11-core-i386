@@ -44,6 +44,7 @@
 #include "../terminal.h"
 #include <stdarg.h>
 #include <string.h>
+#include <stdio.h>
 #include "mini-printf.h"
 
 	static unsigned int
@@ -209,6 +210,16 @@ printf(char *fmt, ...)
 	mini_vsnprintf(buffer, 512, fmt, va);
 	term_write(buffer);
 	va_end(va);
+}
 
+	void
+fprintf(int fd, char *fmt, ...)
+{
+	char buffer[512];
+	va_list va;
+	va_start(va, fmt);
+	mini_vsnprintf(buffer, 512, fmt, va);
+	term_write(buffer);
+	va_end(va);
 }
 

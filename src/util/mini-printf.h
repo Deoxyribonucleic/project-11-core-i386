@@ -35,7 +35,6 @@
 
 int mini_vsnprintf(char* buffer, unsigned int buffer_len, char *fmt, va_list va);
 int mini_snprintf(char* buffer, unsigned int buffer_len, char *fmt, ...);
-void printf(char *fmt, ...);
 
 #define vsnprintf mini_vsnprintf
 #define snprintf mini_snprintf
