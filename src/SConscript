@@ -13,8 +13,10 @@ core.c
 memory.c
 terminal.c
 util/mini-printf.c
+util/stack.c
 lib/string.c
 lib/libc.c
+lib/setjmp_32.asm
 boot.asm
 """)
 
@@ -55,6 +57,6 @@ lua/lvm.c
 lua/lzio.c
 """)
 
-object = env.Object(source = [source, lua_source])
+object = env.Object(source = [source]) #, lua_source])
 core = env.Program(target = 'p11-core', LINKFLAGS = '-T linker.ld -nostdlib -ffreestanding -O2 -Wall -Wextra', source = object)
 
